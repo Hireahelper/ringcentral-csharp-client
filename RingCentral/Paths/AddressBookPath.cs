@@ -19,9 +19,5 @@ namespace RingCentral
         {
             return new ContactPath(this);
         }
-        public GroupPath Group()
-        {
-            return new GroupPath(this);
-        }
     }
 }

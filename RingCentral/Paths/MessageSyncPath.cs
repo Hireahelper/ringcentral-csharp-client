@@ -11,18 +11,18 @@ namespace RingCentral
                 return "message-sync";
             }
         }
-        // Message Synchronization
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'>Since 1.0.4 (Release 5.13)</p><p>Provides facilities to synchronize mailbox content stored externally with server state.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetMessageSyncResponse> List()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Get<GetMessageSyncResponse>(Endpoint(false), null);
         }
-        // Message Synchronization
-        public Task<ListResponse> List(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.4 (Release 5.13)</p><p>Provides facilities to synchronize mailbox content stored externally with server state.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetMessageSyncResponse> List(object parameters)
         {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
+            return RC.Get<GetMessageSyncResponse>(Endpoint(false), parameters);
         }
-        // Message Synchronization
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.4 (Release 5.13)</p><p>Provides facilities to synchronize mailbox content stored externally with server state.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetMessageSyncResponse> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
@@ -35,24 +35,17 @@ namespace RingCentral
             // The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
             public string @dateTo { get; set; }
             // Direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted
-            public string @direction { get; set; }
+            public string[] @direction { get; set; }
             // If 'True', then the latest messages per every conversation ID are returned
             public bool? @distinctConversations { get; set; }
             // Type for the resulting messages. If not specified, all types of messages are returned. Multiple values are accepted
-            public string @messageType { get; set; }
+            public string[] @messageType { get; set; }
             // Limits the number of records to be returned (works in combination with dateFrom and dateTo if specified)
             public long? @recordCount { get; set; }
             // Value of syncToken property of last sync request response
             public string @syncToken { get; set; }
             // Type of message synchronization
-            public string @syncType { get; set; }
-        }
-        public partial class ListResponse
-        {
-            // List of message records with synchronization information
-            public MessageInfo[] @records { get; set; }
-            // Sync type, token and time
-            public SyncInfo @syncInfo { get; set; }
+            public string[] @syncType { get; set; }
         }
     }
 }

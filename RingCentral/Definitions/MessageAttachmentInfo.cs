@@ -12,5 +12,9 @@ namespace RingCentral
         public string @contentType { get; set; }
         // Voicemail only Duration of the voicemail in seconds
         public long? @vmDuration { get; set; }
+        // Name of a file attached
+        public string @filename { get; set; }
+        // Size of attachment in bytes
+        public long? @size { get; set; }
     }
 }

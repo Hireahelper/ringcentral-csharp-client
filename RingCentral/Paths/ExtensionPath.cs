@@ -11,42 +11,6 @@ namespace RingCentral
                 return "extension";
             }
         }
-        public ActiveCallsPath ActiveCalls()
-        {
-            return new ActiveCallsPath(this);
-        }
-        public AddressBookSyncPath AddressBookSync()
-        {
-            return new AddressBookSyncPath(this);
-        }
-        public AddressBookPath AddressBook()
-        {
-            return new AddressBookPath(this);
-        }
-        public AnsweringRulePath AnsweringRule(string _id)
-        {
-            return new AnsweringRulePath(this, _id);
-        }
-        public AnsweringRulePath AnsweringRule()
-        {
-            return new AnsweringRulePath(this);
-        }
-        public AuthzProfilePath AuthzProfile()
-        {
-            return new AuthzProfilePath(this);
-        }
-        public BlockedNumberPath BlockedNumber(string _id)
-        {
-            return new BlockedNumberPath(this, _id);
-        }
-        public BlockedNumberPath BlockedNumber()
-        {
-            return new BlockedNumberPath(this);
-        }
-        public BusinessHoursPath BusinessHours()
-        {
-            return new BusinessHoursPath(this);
-        }
         public CallLogPath CallLog(string _id)
         {
             return new CallLogPath(this, _id);
@@ -59,53 +23,29 @@ namespace RingCentral
         {
             return new CallLogSyncPath(this);
         }
+        public ActiveCallsPath ActiveCalls()
+        {
+            return new ActiveCallsPath(this);
+        }
+        public PhoneNumberPath PhoneNumber(string _id)
+        {
+            return new PhoneNumberPath(this, _id);
+        }
+        public PhoneNumberPath PhoneNumber()
+        {
+            return new PhoneNumberPath(this);
+        }
+        public SmsPath Sms()
+        {
+            return new SmsPath(this);
+        }
         public CompanyPagerPath CompanyPager()
         {
             return new CompanyPagerPath(this);
         }
-        public ConferencingPath Conferencing()
-        {
-            return new ConferencingPath(this);
-        }
-        public DevicePath Device(string _id)
-        {
-            return new DevicePath(this, _id);
-        }
-        public DevicePath Device()
-        {
-            return new DevicePath(this);
-        }
         public FaxPath Fax()
         {
             return new FaxPath(this);
-        }
-        public ForwardingNumberPath ForwardingNumber()
-        {
-            return new ForwardingNumberPath(this);
-        }
-        public GrantPath Grant()
-        {
-            return new GrantPath(this);
-        }
-        public GreetingPath Greeting(string _id)
-        {
-            return new GreetingPath(this, _id);
-        }
-        public GreetingPath Greeting()
-        {
-            return new GreetingPath(this);
-        }
-        public MeetingPath Meeting(string _id)
-        {
-            return new MeetingPath(this, _id);
-        }
-        public MeetingPath Meeting()
-        {
-            return new MeetingPath(this);
-        }
-        public MeetingServiceInfoPath MeetingServiceInfo()
-        {
-            return new MeetingServiceInfoPath(this);
         }
         public MessageStorePath MessageStore(string _id)
         {
@@ -119,17 +59,101 @@ namespace RingCentral
         {
             return new MessageSyncPath(this);
         }
-        public PhoneNumberPath PhoneNumber(string _id)
+        public RingOutPath RingOut(string _id)
         {
-            return new PhoneNumberPath(this, _id);
+            return new RingOutPath(this, _id);
         }
-        public PhoneNumberPath PhoneNumber()
+        public RingOutPath RingOut()
         {
-            return new PhoneNumberPath(this);
+            return new RingOutPath(this);
+        }
+        public DirectRingOutPath DirectRingOut()
+        {
+            return new DirectRingOutPath(this);
+        }
+        public AddressBookPath AddressBook()
+        {
+            return new AddressBookPath(this);
+        }
+        public AddressBookSyncPath AddressBookSync()
+        {
+            return new AddressBookSyncPath(this);
+        }
+        public FavoritePath Favorite()
+        {
+            return new FavoritePath(this);
         }
         public PresencePath Presence()
         {
             return new PresencePath(this);
+        }
+        public MeetingPath Meeting(string _id)
+        {
+            return new MeetingPath(this, _id);
+        }
+        public MeetingPath Meeting()
+        {
+            return new MeetingPath(this);
+        }
+        public MeetingServiceInfoPath MeetingServiceInfo()
+        {
+            return new MeetingServiceInfoPath(this);
+        }
+        public AuthzProfilePath AuthzProfile()
+        {
+            return new AuthzProfilePath(this);
+        }
+        public ForwardingNumberPath ForwardingNumber(string _id)
+        {
+            return new ForwardingNumberPath(this, _id);
+        }
+        public ForwardingNumberPath ForwardingNumber()
+        {
+            return new ForwardingNumberPath(this);
+        }
+        public BlockedNumberPath BlockedNumber(string _id)
+        {
+            return new BlockedNumberPath(this, _id);
+        }
+        public BlockedNumberPath BlockedNumber()
+        {
+            return new BlockedNumberPath(this);
+        }
+        public BusinessHoursPath BusinessHours()
+        {
+            return new BusinessHoursPath(this);
+        }
+        public AnsweringRulePath AnsweringRule(string _id)
+        {
+            return new AnsweringRulePath(this, _id);
+        }
+        public AnsweringRulePath AnsweringRule()
+        {
+            return new AnsweringRulePath(this);
+        }
+        public GreetingPath Greeting(string _id)
+        {
+            return new GreetingPath(this, _id);
+        }
+        public GreetingPath Greeting()
+        {
+            return new GreetingPath(this);
+        }
+        public CallerIdPath CallerId()
+        {
+            return new CallerIdPath(this);
+        }
+        public CredentialsPath Credentials()
+        {
+            return new CredentialsPath(this);
+        }
+        public GrantPath Grant()
+        {
+            return new GrantPath(this);
+        }
+        public NotificationSettingsPath NotificationSettings()
+        {
+            return new NotificationSettingsPath(this);
         }
         public ProfileImagePath ProfileImage(string _id)
         {
@@ -139,30 +163,38 @@ namespace RingCentral
         {
             return new ProfileImagePath(this);
         }
-        public RingoutPath Ringout(string _id)
+        public ConferencingPath Conferencing()
         {
-            return new RingoutPath(this, _id);
+            return new ConferencingPath(this);
         }
-        public RingoutPath Ringout()
+        public FreeNumbersPath FreeNumbers()
         {
-            return new RingoutPath(this);
+            return new FreeNumbersPath(this);
         }
-        public SmsPath Sms()
+        public DevicePath Device(string _id)
         {
-            return new SmsPath(this);
+            return new DevicePath(this, _id);
         }
-        // Get Extension List
-        public Task<ListResponse> List()
+        public DevicePath Device()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return new DevicePath(this);
         }
-        // Get Extension List
-        public Task<ListResponse> List(object parameters)
+        public ReportingPath Reporting()
         {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
+            return new ReportingPath(this);
         }
-        // Get Extension List
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.0</p><p>Returns the list of extensions created for a particular account. All types of extensions are included in this list.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+        public Task<GetExtensionListResponse> List()
+        {
+            return RC.Get<GetExtensionListResponse>(Endpoint(false), null);
+        }
+        // <p style='font-style:italic;'>Since 1.0.0</p><p>Returns the list of extensions created for a particular account. All types of extensions are included in this list.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+        public Task<GetExtensionListResponse> List(object parameters)
+        {
+            return RC.Get<GetExtensionListResponse>(Endpoint(false), parameters);
+        }
+        // <p style='font-style:italic;'>Since 1.0.0</p><p>Returns the list of extensions created for a particular account. All types of extensions are included in this list.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+        public Task<GetExtensionListResponse> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
@@ -173,38 +205,50 @@ namespace RingCentral
             // Indicates the page size (number of items). If not specified, the value is '100' by default.
             public long? @perPage { get; set; }
             // Extension current state. Multiple values are supported. If 'Unassigned' is specified, then extensions without extensionNumber are returned. If not specified, then all extensions are returned
-            public string @status { get; set; }
+            public string[] @status { get; set; }
             // Extension type. Multiple values are supported
-            public string @type { get; set; }
+            public string[] @type { get; set; }
         }
-        public partial class ListResponse
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Creates an extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+        public Task<ExtensionInfo> Post()
         {
-            // List of extensions with extension information
-            public ExtensionInfo[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
+            return RC.Post<ExtensionInfo>(Endpoint(true), null);
         }
-        // Get Extension Info by ID
-        public Task<ExtensionInfo> Get()
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Creates an extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+        public Task<ExtensionInfo> Post(object parameters)
         {
-            return RC.Get<ExtensionInfo>(Endpoint(true), null);
+            return RC.Post<ExtensionInfo>(Endpoint(true), parameters);
         }
-        // Update Extension by ID
-        public Task<ExtensionInfo> Put()
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Creates an extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+        public Task<ExtensionInfo> Post(ExtensionCreationRequest parameters)
         {
-            return RC.Put<ExtensionInfo>(Endpoint(true), null);
+            return Post(parameters as object);
         }
-        // Update Extension by ID
-        public Task<ExtensionInfo> Put(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.0</p><p>Returns basic information about a particular extension of an account.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetExtensionInfoResponse> Get()
         {
-            return RC.Put<ExtensionInfo>(Endpoint(true), parameters);
+            return RC.Get<GetExtensionInfoResponse>(Endpoint(true), null);
         }
-        // Update Extension by ID
-        public Task<ExtensionInfo> Put(ExtensionParameters parameters)
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<GetExtensionInfoResponse> Put()
+        {
+            return RC.Put<GetExtensionInfoResponse>(Endpoint(true), null);
+        }
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<GetExtensionInfoResponse> Put(object parameters)
+        {
+            return RC.Put<GetExtensionInfoResponse>(Endpoint(true), parameters);
+        }
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<GetExtensionInfoResponse> Put(ExtensionUpdateRequest parameters)
         {
             return Put(parameters as object);
+        }
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Deletes extension(s) by ID(s).</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public async Task<bool> Delete()
+        {
+            await RC.Delete(Endpoint(true), null);
+            return true;
         }
     }
 }

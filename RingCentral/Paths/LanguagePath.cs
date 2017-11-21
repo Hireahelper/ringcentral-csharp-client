@@ -11,21 +11,12 @@ namespace RingCentral
                 return "language";
             }
         }
-        // Get Supported Language List
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns the information about supported languages.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<LanguageList> List()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Get<LanguageList>(Endpoint(false), null);
         }
-        public partial class ListResponse
-        {
-            // Language data
-            public LanguageInfo[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
-        }
-        // Get Language by ID
+        // <p style='font-style:italic;'>Since 1.0.14 (Release 6.6)</p><p>Returns language by its respective ID.</p><h4>Usage Plan Group</h4><p>Light</p>
         public Task<LanguageInfo> Get()
         {
             return RC.Get<LanguageInfo>(Endpoint(true), null);

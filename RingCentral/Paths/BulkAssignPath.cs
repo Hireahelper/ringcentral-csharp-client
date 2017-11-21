@@ -11,29 +11,20 @@ namespace RingCentral
                 return "bulk-assign";
             }
         }
-        // Edit Group Members
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Updates group members. Please note: Only groups of 'Team' type can be updated. Currently only one operation at a time (either adding or removal) is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
         public Task<GlipGroupInfo> Post()
         {
             return RC.Post<GlipGroupInfo>(Endpoint(true), null);
         }
-        // Edit Group Members
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Updates group members. Please note: Only groups of 'Team' type can be updated. Currently only one operation at a time (either adding or removal) is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
         public Task<GlipGroupInfo> Post(object parameters)
         {
             return RC.Post<GlipGroupInfo>(Endpoint(true), parameters);
         }
-        // Edit Group Members
-        public Task<GlipGroupInfo> Post(PostParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Updates group members. Please note: Only groups of 'Team' type can be updated. Currently only one operation at a time (either adding or removal) is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+        public Task<GlipGroupInfo> Post(EditGroupRequest parameters)
         {
             return Post(parameters as object);
-        }
-        public partial class PostParameters
-        {
-            // List of users to be added to the team
-            public string[] @addedPersonIds { get; set; }
-            // List of user email addresses to be added to the team (i.e. as guests)
-            public string[] @addedPersonEmails { get; set; }
-            // List of users to be removed from the team
-            public string[] @removedPersonIds { get; set; }
         }
     }
 }

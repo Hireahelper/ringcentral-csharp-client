@@ -11,56 +11,25 @@ namespace RingCentral
                 return "business-address";
             }
         }
-        // Get Company Business Address
-        public Task<GetResponse> Get()
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetAccountInfoResponse> Get()
         {
-            return RC.Get<GetResponse>(Endpoint(true), null);
+            return RC.Get<GetAccountInfoResponse>(Endpoint(true), null);
         }
-        public partial class GetResponse
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<AccountBusinessAddressResource> Put()
         {
-            // Canonical URI of the business address resource
-            public string @uri { get; set; }
-            // Company business name
-            public string @company { get; set; }
-            // Company business email address
-            public string @email { get; set; }
-            // Company business address
-            public BusinessAddressInfo @businessAddress { get; set; }
+            return RC.Put<AccountBusinessAddressResource>(Endpoint(true), null);
         }
-        // Update Company Business Address
-        public Task<PutResponse> Put()
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<AccountBusinessAddressResource> Put(object parameters)
         {
-            return RC.Put<PutResponse>(Endpoint(true), null);
+            return RC.Put<AccountBusinessAddressResource>(Endpoint(true), parameters);
         }
-        // Update Company Business Address
-        public Task<PutResponse> Put(object parameters)
-        {
-            return RC.Put<PutResponse>(Endpoint(true), parameters);
-        }
-        // Update Company Business Address
-        public Task<PutResponse> Put(PutParameters parameters)
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<AccountBusinessAddressResource> Put(ModifyAccountBusinessAddressRequest parameters)
         {
             return Put(parameters as object);
-        }
-        public partial class PutParameters
-        {
-            // Company business name
-            public string @company { get; set; }
-            // Company business email address
-            public string @email { get; set; }
-            // Company business address
-            public BusinessAddressInfo @businessAddress { get; set; }
-        }
-        public partial class PutResponse
-        {
-            // Canonical URI of the business address resource
-            public string @uri { get; set; }
-            // Company business name
-            public string @company { get; set; }
-            // Company business email address
-            public string @email { get; set; }
-            // Company business address
-            public BusinessAddressInfo @businessAddress { get; set; }
         }
     }
 }

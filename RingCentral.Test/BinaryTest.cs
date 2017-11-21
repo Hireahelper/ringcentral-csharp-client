@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using Xunit;
@@ -14,7 +13,7 @@ namespace RingCentral.Test
         public BinaryTest(RestClientFixture fixture)
         {
             rc = fixture.rc;
-            bytes = File.ReadAllBytes("test.png");
+            bytes = System.IO.File.ReadAllBytes("test.png");
         }
 
         [Fact]
@@ -63,7 +62,7 @@ namespace RingCentral.Test
             content = await extension.MessageStore(message.id).Content(message.attachments[0].id).Get();
             Assert.NotNull(content);
             Assert.True(content.data.Length > 0);
-            File.WriteAllBytes("test.pdf", content.data);
+            System.IO.File.WriteAllBytes("test.pdf", content.data);
         }
 
         [Fact]
@@ -74,8 +73,8 @@ namespace RingCentral.Test
             // List call Logs
             var queryParams = new CallLogPath.ListParameters
             {
-                type = "Voice",
-                view = "Detailed",
+                type = new string[] { "Voice" },
+                view = new string[] { "Detailed" },
                 dateFrom = DateTime.UtcNow.AddDays(-365).ToString("o"),
                 withRecording = true,
                 perPage = 10,
@@ -88,7 +87,7 @@ namespace RingCentral.Test
                 var content = await account.Recording(callLog.recording.id).Content().Get();
                 Assert.NotNull(content);
                 Assert.True(content.data.Length > 0);
-                File.WriteAllBytes("test.wav", content.data);
+                System.IO.File.WriteAllBytes("test.wav", content.data);
             }
         }
 

@@ -14,7 +14,7 @@ namespace RingCentral
         public BillingPlanInfo @billingPlan { get; set; }
         // Service features information, see Service Feature List
         public ServiceFeatureInfo[] @serviceFeatures { get; set; }
-        // Limits which are effective for the account
+        // Limits which are effective for an account
         public AccountLimits @limits { get; set; }
     }
 }

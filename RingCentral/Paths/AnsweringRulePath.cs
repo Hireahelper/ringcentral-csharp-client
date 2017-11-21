@@ -11,96 +11,81 @@ namespace RingCentral
                 return "answering-rule";
             }
         }
-        // Create Custom Answering Rule
+        // <p style='font-style:italic;'>Since 1.0.15 (Release 7.0)</p><p>Returns the extension answering rules.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public async Task<bool> Get()
+        {
+            await RC.Get(Endpoint(true), null);
+            return true;
+        }
+        // <p style='font-style:italic;'>Since 1.0.15 (Release 7.0)</p><p>Returns the extension answering rules.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public async Task<bool> Get(object parameters)
+        {
+            await RC.Get(Endpoint(true), parameters);
+            return true;
+        }
+        // <p style='font-style:italic;'>Since 1.0.15 (Release 7.0)</p><p>Returns the extension answering rules.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<bool> Get(GetParameters parameters)
+        {
+            return Get(parameters as object);
+        }
+        public partial class GetParameters
+        {
+            //
+            public string @page { get; set; }
+            //
+            public string @perPage { get; set; }
+        }
+        // <p style='font-style:italic;'>Since 1.0.24 (Release 8.0)</p><p>Creates a custom answering rule for a particular caller ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
         public Task<AnsweringRuleInfo> Post()
         {
             return RC.Post<AnsweringRuleInfo>(Endpoint(true), null);
         }
-        // Create Custom Answering Rule
+        // <p style='font-style:italic;'>Since 1.0.24 (Release 8.0)</p><p>Creates a custom answering rule for a particular caller ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
         public Task<AnsweringRuleInfo> Post(object parameters)
         {
             return RC.Post<AnsweringRuleInfo>(Endpoint(true), parameters);
         }
-        // Create Custom Answering Rule
-        public Task<AnsweringRuleInfo> Post(PostParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.24 (Release 8.0)</p><p>Creates a custom answering rule for a particular caller ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<AnsweringRuleInfo> Post(CreateAnsweringRuleRequest parameters)
         {
             return Post(parameters as object);
         }
-        public partial class PostParameters
+        // <p style='font-style:italic;'>Since 1.0.24 (Release 8.0)</p><p>Updates a custom answering rule for a particular caller ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<AnsweringRuleInfo> Put()
         {
-            // Specifies if the rule is active or inactive. The default value is 'True'
-            public bool? @enabled { get; set; }
-            // Type of an answering rule, the supported value is 'Custom'
-            public string @type { get; set; }
-            // Name of an answering rule specified by user. Max number of symbols is 30
-            public string @name { get; set; }
-            // Answering rule will be applied when calls are received from the specified caller(s)
-            public CallersInfo[] @callers { get; set; }
-            // Answering rule will be applied when calling the specified number(s)
-            public CalledNumberInfo[] @calledNumbers { get; set; }
-            // Schedule when an answering rule should be applied
-            public AnsweringRule_ScheduleInfo @schedule { get; set; }
-            // Specifies how incoming calls should be forwarded. The default value is 'ForwardCalls'
-            public string @callHandlingAction { get; set; }
-            // Forwarding parameters. If the 'callHandlingAction' parameter value is set to 'ForwardCalls' - should be specified . The settings determine the forwarding numbers to which the call should be forwarded. If not specified in request, then the business-hours forwarding rules are set by default
-            public ForwardingInfo @forwarding { get; set; }
-            // Unconditional forwarding parameters. If the 'callHandlingAction' parameter value is set to 'UnconditionalForwarding' - should be specified
-            public UnconditionalForwardingInfo @unconditionalForwarding { get; set; }
-            // Specifies whether to take a voicemail and who should do it
-            public VoicemailInfo @voiceMail { get; set; }
+            return RC.Put<AnsweringRuleInfo>(Endpoint(true), null);
         }
-        // Get Answering Rules List
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'>Since 1.0.24 (Release 8.0)</p><p>Updates a custom answering rule for a particular caller ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<AnsweringRuleInfo> Put(object parameters)
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Put<AnsweringRuleInfo>(Endpoint(true), parameters);
         }
-        public partial class ListResponse
+        // <p style='font-style:italic;'>Since 1.0.24 (Release 8.0)</p><p>Updates a custom answering rule for a particular caller ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<AnsweringRuleInfo> Put(UpdateAnsweringRuleRequest parameters)
         {
-            // Canonical URI of an answering rule resource
-            public string @uri { get; set; }
-            // List of answering rules
-            public AnsweringRuleInfo[] @records { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
+            return Put(parameters as object);
         }
-        // Delete Answering Rule by ID
+        //
         public async Task<bool> Delete()
         {
             await RC.Delete(Endpoint(true), null);
             return true;
         }
-        // Get Custom Answering Rule by ID
-        public Task<AnsweringRuleInfo> Get()
+        //
+        public async Task<bool> Delete(object parameters)
         {
-            return RC.Get<AnsweringRuleInfo>(Endpoint(true), null);
+            await RC.Delete(Endpoint(true), parameters);
+            return true;
         }
-        // Update Answering Rule by ID
-        public Task<AnsweringRuleInfo> Put()
+        //
+        public Task<bool> Delete(UpdateAnsweringRuleRequest parameters)
         {
-            return RC.Put<AnsweringRuleInfo>(Endpoint(true), null);
+            return Delete(parameters as object);
         }
-        // Update Answering Rule by ID
-        public Task<AnsweringRuleInfo> Put(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p>Returns a list of company answering rules.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+        public Task<CompanyAnsweringRuleList> List()
         {
-            return RC.Put<AnsweringRuleInfo>(Endpoint(true), parameters);
-        }
-        // Update Answering Rule by ID
-        public Task<AnsweringRuleInfo> Put(PutParameters parameters)
-        {
-            return Put(parameters as object);
-        }
-        public partial class PutParameters
-        {
-            // Specifies if the answering rule is active or not
-            public bool? @enabled { get; set; }
-            // Custom name of an answering rule. The maximum number of characters is 64
-            public string @name { get; set; }
-            // Forwarding parameters. Returned if 'ForwardCalls' is specified in 'callHandlingAction'. These settings determine the forwarding numbers to which the call will be forwarded
-            public ForwardingInfo @forwarding { get; set; }
-            // Predefined greetings applied for an answering rule
-            public GreetingInfo[] @greetings { get; set; }
+            return RC.Get<CompanyAnsweringRuleList>(Endpoint(false), null);
         }
     }
 }

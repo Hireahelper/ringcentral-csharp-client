@@ -15,5 +15,9 @@ namespace RingCentral
         {
             return new MembersPath(this);
         }
+        public BulkAssignPath BulkAssign()
+        {
+            return new BulkAssignPath(this);
+        }
     }
 }

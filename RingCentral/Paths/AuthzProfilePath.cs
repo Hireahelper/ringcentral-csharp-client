@@ -15,17 +15,10 @@ namespace RingCentral
         {
             return new CheckPath(this);
         }
-        // Get User Permissions
-        public Task<GetResponse> Get()
+        //
+        public Task<AuthProfileResource> Get()
         {
-            return RC.Get<GetResponse>(Endpoint(true), null);
-        }
-        public partial class GetResponse
-        {
-            // Canonical URI of an authorization profile resource
-            public string @uri { get; set; }
-            // List of user permissions granted
-            public UserPermission[] @permissions { get; set; }
+            return RC.Get<AuthProfileResource>(Endpoint(true), null);
         }
     }
 }

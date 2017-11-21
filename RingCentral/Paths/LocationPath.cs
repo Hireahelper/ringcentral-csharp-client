@@ -11,25 +11,25 @@ namespace RingCentral
                 return "location";
             }
         }
-        // Get Location List
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the available locations for the certain state.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetLocationListResponse> List()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Get<GetLocationListResponse>(Endpoint(false), null);
         }
-        // Get Location List
-        public Task<ListResponse> List(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the available locations for the certain state.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetLocationListResponse> List(object parameters)
         {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
+            return RC.Get<GetLocationListResponse>(Endpoint(false), parameters);
         }
-        // Get Location List
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the available locations for the certain state.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetLocationListResponse> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
         public partial class ListParameters
         {
             // Sorts results by the specified property. The default value is 'City'
-            public string @orderBy { get; set; }
+            public string[] @orderBy { get; set; }
             // Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'.
             public long? @page { get; set; }
             // Indicates the page size (number of items). If not specified, the value is '100' by default.
@@ -38,15 +38,6 @@ namespace RingCentral
             public string @stateId { get; set; }
             // Specifies if nxx codes are returned
             public bool? @withNxx { get; set; }
-        }
-        public partial class ListResponse
-        {
-            // List of locations
-            public LocationInfo[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
         }
     }
 }

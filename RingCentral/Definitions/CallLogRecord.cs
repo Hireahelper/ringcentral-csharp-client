@@ -9,11 +9,9 @@ namespace RingCentral
         // Internal identifier of a call session
         public string @sessionId { get; set; }
         // Caller information
-        public CallerInfo @from { get; set; }
+        public CallLogCallerInfo @from { get; set; }
         // Callee information
-        public CallerInfo @to { get; set; }
-        // For Extension Call Log only. Voicemail message data
-        public VoicemailMessageInfo @message { get; set; }
+        public CallLogCallerInfo @to { get; set; }
         // Call type
         public string @type { get; set; }
         // Call direction
@@ -22,8 +20,6 @@ namespace RingCentral
         public string @action { get; set; }
         // Status description of the call operation
         public string @result { get; set; }
-        // For 'Detailed' view only. Call billing information
-        public BillingInfo @billing { get; set; }
         // The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
         public string @startTime { get; set; }
         // Call duration in seconds
@@ -32,7 +28,9 @@ namespace RingCentral
         public RecordingInfo @recording { get; set; }
         // For 'Detailed' view only. The datetime when the call log record was modified in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
         public string @lastModifiedTime { get; set; }
+        // For 'Detailed' view only. Call transport
+        public string @transport { get; set; }
         // For 'Detailed' view only. Leg description
-        public LegInfo[] @legs { get; set; }
+        public CallLogRecordLegInfo[] @legs { get; set; }
     }
 }

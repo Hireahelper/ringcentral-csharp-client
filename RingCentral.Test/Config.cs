@@ -1,6 +1,5 @@
 using Newtonsoft.Json;
 using System;
-using System.IO;
 
 namespace RingCentral.Test
 {
@@ -15,9 +14,9 @@ namespace RingCentral.Test
             {
                 if (instance == null)
                 {
-                    if (File.Exists("config.json"))
+                    if (System.IO.File.Exists("config.json"))
                     {
-                        var jsonStr = File.ReadAllText("config.json");
+                        var jsonStr = System.IO.File.ReadAllText("config.json");
                         instance = JsonConvert.DeserializeObject<Config>(jsonStr);
                     }
                     else

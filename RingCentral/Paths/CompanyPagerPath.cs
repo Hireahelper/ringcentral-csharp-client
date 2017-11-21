@@ -11,31 +11,20 @@ namespace RingCentral
                 return "company-pager";
             }
         }
-        // Create and Send Pager Message
-        public Task<MessageInfo> Post()
+        // <p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends a pager message.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>InternalMessages</td><td>Sending and receiving intra-company text messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<GetMessageInfoResponse> Post()
         {
-            return RC.Post<MessageInfo>(Endpoint(true), null);
+            return RC.Post<GetMessageInfoResponse>(Endpoint(true), null);
         }
-        // Create and Send Pager Message
-        public Task<MessageInfo> Post(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends a pager message.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>InternalMessages</td><td>Sending and receiving intra-company text messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<GetMessageInfoResponse> Post(object parameters)
         {
-            return RC.Post<MessageInfo>(Endpoint(true), parameters);
+            return RC.Post<GetMessageInfoResponse>(Endpoint(true), parameters);
         }
-        // Create and Send Pager Message
-        public Task<MessageInfo> Post(PostParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends a pager message.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>InternalMessages</td><td>Sending and receiving intra-company text messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<GetMessageInfoResponse> Post(CreatePagerMessageRequest parameters)
         {
             return Post(parameters as object);
-        }
-        public partial class PostParameters
-        {
-            // Sender of a pager message. The extensionNumber property must be filled
-            public CallerInfo @from { get; set; }
-            // Internal identifier of a message this message replies to
-            public long? @replyOn { get; set; }
-            // Text of a pager message. Max length is 1024 symbols (2-byte UTF-16 encoded). If a character is encoded in 4 bytes in UTF-16 it is treated as 2 characters, thus restricting the maximum message length to 512 symbols
-            public string @text { get; set; }
-            // Optional if replyOn parameter is specified. Receiver of a pager message. The extensionNumber property must be filled
-            public CallerInfo[] @to { get; set; }
         }
     }
 }

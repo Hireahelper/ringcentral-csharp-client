@@ -11,23 +11,10 @@ namespace RingCentral
                 return "companies";
             }
         }
-        // Get Company by ID
-        public Task<GetResponse> Get()
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns a company by ID.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+        public Task<GlipCompany> Get()
         {
-            return RC.Get<GetResponse>(Endpoint(true), null);
-        }
-        public partial class GetResponse
-        {
-            // Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to
-            public string @id { get; set; }
-            // Name of a company
-            public string @name { get; set; }
-            // Domain name of a company
-            public string @domain { get; set; }
-            // Datetime of creation in ISO 8601 format
-            public string @creationTime { get; set; }
-            // Datetime of last modification in ISO 8601 format
-            public string @lastModifiedTime { get; set; }
+            return RC.Get<GlipCompany>(Endpoint(true), null);
         }
     }
 }

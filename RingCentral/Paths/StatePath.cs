@@ -11,18 +11,18 @@ namespace RingCentral
                 return "state";
             }
         }
-        // Get State/Province List
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the states for a certain country.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetStateListResponse> List()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Get<GetStateListResponse>(Endpoint(false), null);
         }
-        // Get State/Province List
-        public Task<ListResponse> List(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the states for a certain country.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetStateListResponse> List(object parameters)
         {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
+            return RC.Get<GetStateListResponse>(Endpoint(false), parameters);
         }
-        // Get State/Province List
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all the states for a certain country.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetStateListResponse> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
@@ -37,19 +37,10 @@ namespace RingCentral
             // If 'True', the list of states with phone numbers available for buying is returned. The default value is 'False'
             public bool? @withPhoneNumbers { get; set; }
         }
-        public partial class ListResponse
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on the required state.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetStateInfoResponse> Get()
         {
-            // List of states
-            public StateInfo[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
-        }
-        // Get State/Province by ID
-        public Task<StateInfo> Get()
-        {
-            return RC.Get<StateInfo>(Endpoint(true), null);
+            return RC.Get<GetStateInfoResponse>(Endpoint(true), null);
         }
     }
 }

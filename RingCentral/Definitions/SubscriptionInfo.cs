@@ -17,6 +17,6 @@ namespace RingCentral
         // Subscription creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
         public string @creationTime { get; set; }
         // Delivery mode data
-        public DeliveryMode @deliveryMode { get; set; }
+        public NotificationDeliveryMode @deliveryMode { get; set; }
     }
 }

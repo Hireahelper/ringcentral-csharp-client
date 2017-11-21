@@ -2,9 +2,9 @@ namespace RingCentral
 {
     public partial class BlockedNumberInfo
     {
-        // Standard resource properties ID and canonical URI, see the section called “Resource Identification Properties”
+        // Internal identifier of a blocked number
         public string @id { get; set; }
-        // Canonical URI of a blocked number resource
+        // Canonical URI of a blocked number
         public string @uri { get; set; }
         // Name assigned by a user to a blocked phone number
         public string @name { get; set; }

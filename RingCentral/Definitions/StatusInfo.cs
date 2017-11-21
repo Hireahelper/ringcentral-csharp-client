@@ -2,9 +2,11 @@ namespace RingCentral
 {
     public partial class StatusInfo
     {
-        // A free-form user comment, describing the status change reason
-        public string @comment { get; set; }
-        // Type of suspension
+        //
         public string @reason { get; set; }
+        //
+        public string @till { get; set; }
+        //
+        public string @comment { get; set; }
     }
 }

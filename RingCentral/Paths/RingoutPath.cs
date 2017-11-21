@@ -1,54 +1,41 @@
 using System.Threading.Tasks;
 namespace RingCentral
 {
-    public partial class RingoutPath : PathSegment
+    public partial class RingOutPath : PathSegment
     {
-        internal RingoutPath(PathSegment parent, string _id = null) : base(parent, _id) { }
+        internal RingOutPath(PathSegment parent, string _id = null) : base(parent, _id) { }
         protected override string Segment
         {
             get
             {
-                return "ringout";
+                return "ring-out";
             }
         }
-        // Initiate RingOut Call
-        public Task<RingOutInfo> Post()
+        // <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Makes a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<GetRingOutStatusResponse> Post()
         {
-            return RC.Post<RingOutInfo>(Endpoint(true), null);
+            return RC.Post<GetRingOutStatusResponse>(Endpoint(true), null);
         }
-        // Initiate RingOut Call
-        public Task<RingOutInfo> Post(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Makes a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<GetRingOutStatusResponse> Post(object parameters)
         {
-            return RC.Post<RingOutInfo>(Endpoint(true), parameters);
+            return RC.Post<GetRingOutStatusResponse>(Endpoint(true), parameters);
         }
-        // Initiate RingOut Call
-        public Task<RingOutInfo> Post(PostParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Makes a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<GetRingOutStatusResponse> Post(MakeRingOutRequest parameters)
         {
             return Post(parameters as object);
         }
-        public partial class PostParameters
+        // <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Returns the status of a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetRingOutStatusResponse> Get()
         {
-            // Phone number of the caller. This number corresponds to the 1st leg of the RingOut call. This number can be one of user's configured forwarding numbers or arbitrary number
-            public RingOut_Request_From @from { get; set; }
-            // Phone number of the called party. This number corresponds to the 2nd leg of the RingOut call
-            public RingOut_Request_To @to { get; set; }
-            // The number which will be displayed to the called party
-            public RingOut_Request_To @callerId { get; set; }
-            // The audio prompt that the calling party hears when the call is connected
-            public bool? @playPrompt { get; set; }
-            // Optional. Dialing plan country data. If not specified, then extension home country is applied by default
-            public RingOut_Request_CountryInfo @country { get; set; }
+            return RC.Get<GetRingOutStatusResponse>(Endpoint(true), null);
         }
-        // Cancel RingOut Call
+        // <p style='font-style:italic;'></p><p>Cancels the 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
         public async Task<bool> Delete()
         {
             await RC.Delete(Endpoint(true), null);
             return true;
-        }
-        // Get RingOut Call Status
-        public Task<RingOutInfo> Get()
-        {
-            return RC.Get<RingOutInfo>(Endpoint(true), null);
         }
     }
 }

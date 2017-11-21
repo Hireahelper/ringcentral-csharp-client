@@ -2,9 +2,9 @@ namespace RingCentral
 {
     public partial class ShippingMethod
     {
-        // Method identifier. The default value is "1" (Ground)
+        // Internal identifier of the shipping method
         public string @id { get; set; }
-        // Method name, corresponding to the identifier
+        // Name/description of the shipping method
         public string @name { get; set; }
     }
 }

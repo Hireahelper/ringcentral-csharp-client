@@ -11,70 +11,60 @@ namespace RingCentral
                 return "subscription";
             }
         }
-        // Create New Subscription
+        public RenewPath Renew()
+        {
+            return new RenewPath(this);
+        }
+        //
+        public Task<RecordsCollectionResourceSubscriptionResponse> List()
+        {
+            return RC.Get<RecordsCollectionResourceSubscriptionResponse>(Endpoint(false), null);
+        }
+        // <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Creates a new subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
         public Task<SubscriptionInfo> Post()
         {
             return RC.Post<SubscriptionInfo>(Endpoint(true), null);
         }
-        // Create New Subscription
+        // <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Creates a new subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
         public Task<SubscriptionInfo> Post(object parameters)
         {
             return RC.Post<SubscriptionInfo>(Endpoint(true), parameters);
         }
-        // Create New Subscription
-        public Task<SubscriptionInfo> Post(PostParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Creates a new subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
+        public Task<SubscriptionInfo> Post(CreateSubscriptionRequest parameters)
         {
             return Post(parameters as object);
         }
-        public partial class PostParameters
-        {
-            // Mandatory. Collection of URIs to API resources (see Event Types for details). For APNS transport type only message event filter is available
-            public string[] @eventFilters { get; set; }
-            // Notification delivery settings
-            public Subscription_Request_DeliveryMode @deliveryMode { get; set; }
-        }
-        // Get Subscription List
-        public Task<ListResponse> List()
-        {
-            return RC.Get<ListResponse>(Endpoint(false), null);
-        }
-        public partial class ListResponse
-        {
-            // Canonical URI of a subscription resource
-            public string @uri { get; set; }
-            // List of subscriptions for the current user and application
-            public SubscriptionInfo[] @records { get; set; }
-        }
-        // Cancel Subscription by ID
-        public async Task<bool> Delete()
-        {
-            await RC.Delete(Endpoint(true), null);
-            return true;
-        }
-        // Get Subscription by ID
+        // <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Returns the requested subscription.</p><h4>Usage Plan Group</h4><p>Light</p>
         public Task<SubscriptionInfo> Get()
         {
             return RC.Get<SubscriptionInfo>(Endpoint(true), null);
         }
-        // Update/Renew Subscription by ID
+        // <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Renews the existent subscription if the request body is empty. If event filters are specified, calling this method modifies the event filters for the existing subscription. The client application can extend or narrow the events for which it receives notifications in the frame of one subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
         public Task<SubscriptionInfo> Put()
         {
             return RC.Put<SubscriptionInfo>(Endpoint(true), null);
         }
-        // Update/Renew Subscription by ID
+        // <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Renews the existent subscription if the request body is empty. If event filters are specified, calling this method modifies the event filters for the existing subscription. The client application can extend or narrow the events for which it receives notifications in the frame of one subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
         public Task<SubscriptionInfo> Put(object parameters)
         {
             return RC.Put<SubscriptionInfo>(Endpoint(true), parameters);
         }
-        // Update/Renew Subscription by ID
+        // <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Renews the existent subscription if the request body is empty. If event filters are specified, calling this method modifies the event filters for the existing subscription. The client application can extend or narrow the events for which it receives notifications in the frame of one subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
         public Task<SubscriptionInfo> Put(PutParameters parameters)
         {
             return Put(parameters as object);
         }
         public partial class PutParameters
         {
-            // Collection of URIs to API resources (see Event Types). Mandatory field
-            public string[] @eventFilters { get; set; }
+            // If 'True' then aggregated presence status is returned in a notification payload
+            public bool? @aggregated { get; set; }
+        }
+        // <p style='font-style:italic;'></p><p>Cancels the existent subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
+        public async Task<bool> Delete()
+        {
+            await RC.Delete(Endpoint(true), null);
+            return true;
         }
     }
 }

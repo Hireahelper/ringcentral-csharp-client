@@ -11,18 +11,18 @@ namespace RingCentral
                 return "call-log";
             }
         }
-        // Get Account Call Log
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'>Since 1.0.3 (Release 5.11)</p><p>Returns call log records filtered by the specified parameters.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<ExtensionCallLogResponse> List()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Get<ExtensionCallLogResponse>(Endpoint(false), null);
         }
-        // Get Account Call Log
-        public Task<ListResponse> List(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.3 (Release 5.11)</p><p>Returns call log records filtered by the specified parameters.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<ExtensionCallLogResponse> List(object parameters)
         {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
+            return RC.Get<ExtensionCallLogResponse>(Endpoint(false), parameters);
         }
-        // Get Account Call Log
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.3 (Release 5.11)</p><p>Returns call log records filtered by the specified parameters.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<ExtensionCallLogResponse> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
@@ -34,56 +34,40 @@ namespace RingCentral
             public bool? @showBlocked { get; set; }
             // Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter
             public string @phoneNumber { get; set; }
-            // The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are supported
-            public string @direction { get; set; }
-            // Internal identifier of a call session. Cannot be specified along with parameters 'dateTo'/'dateFrom'
+            // The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
+            public string[] @direction { get; set; }
+            //
             public string @sessionId { get; set; }
-            // Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are supported
-            public string @type { get; set; }
-            // Call transport type. By default this filter is disabled
-            public string @transport { get; set; }
+            // Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
+            public string[] @type { get; set; }
+            // Call transport type. 'PSTN' specifies that a call leg is initiated from the PSTN network provider; 'VoIP' - from an RC phone. By default this filter is disabled
+            public string[] @transport { get; set; }
             // The default value is 'Simple' for both account and extension call log
-            public string @view { get; set; }
-            // 'True' if only recorded calls are returned. The default value is 'False'
+            public string[] @view { get; set; }
+            // 'True' if only recorded calls have to be returned
             public bool? @withRecording { get; set; }
-            // The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
-            public string @dateFrom { get; set; }
             // The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
             public string @dateTo { get; set; }
-            // Indicates the page number to retrieve. Only positive number values are allowed. The default value is '1'
+            // The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
+            public string @dateFrom { get; set; }
+            // Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'
             public long? @page { get; set; }
-            // Indicates the page size (number of items). If not specified, the value is '100' by default.
+            // Indicates the page size (number of items). If not specified, the value is '100' by default
             public long? @perPage { get; set; }
         }
-        public partial class ListResponse
-        {
-            // Canonical URI
-            public string @uri { get; set; }
-            // List of call log records
-            public CallLogRecord[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
-        }
-        // Get Account Call Log Record by ID
-        public Task<CallLogInfo> Get()
-        {
-            return RC.Get<CallLogInfo>(Endpoint(true), null);
-        }
-        // Delete Extension Call Log
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditCallLog</td><td>Viewing and updating user call logs</td></tr><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
         public async Task<bool> Delete()
         {
             await RC.Delete(Endpoint(true), null);
             return true;
         }
-        // Delete Extension Call Log
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditCallLog</td><td>Viewing and updating user call logs</td></tr><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
         public async Task<bool> Delete(object parameters)
         {
             await RC.Delete(Endpoint(true), parameters);
             return true;
         }
-        // Delete Extension Call Log
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditCallLog</td><td>Viewing and updating user call logs</td></tr><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
         public Task<bool> Delete(DeleteParameters parameters)
         {
             return Delete(parameters as object);
@@ -92,6 +76,36 @@ namespace RingCentral
         {
             // The end datetime for records deletion in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
             public string @dateTo { get; set; }
+            //
+            public string @phoneNumber { get; set; }
+            //
+            public string @extensionNumber { get; set; }
+            //
+            public string[] @type { get; set; }
+            //
+            public string[] @direction { get; set; }
+            //
+            public string @dateFrom { get; set; }
+        }
+        //
+        public Task<UserCallLogRecord> Get()
+        {
+            return RC.Get<UserCallLogRecord>(Endpoint(true), null);
+        }
+        //
+        public Task<UserCallLogRecord> Get(object parameters)
+        {
+            return RC.Get<UserCallLogRecord>(Endpoint(true), parameters);
+        }
+        //
+        public Task<UserCallLogRecord> Get(GetParameters parameters)
+        {
+            return Get(parameters as object);
+        }
+        public partial class GetParameters
+        {
+            //
+            public string @view { get; set; }
         }
     }
 }

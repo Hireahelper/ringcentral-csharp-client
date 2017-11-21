@@ -11,18 +11,18 @@ namespace RingCentral
                 return "grant";
             }
         }
-        // Get Extension Grants
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'></p><p>Returns the list of extension grants.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetExtensionGrantListResponse> List()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Get<GetExtensionGrantListResponse>(Endpoint(false), null);
         }
-        // Get Extension Grants
-        public Task<ListResponse> List(object parameters)
+        // <p style='font-style:italic;'></p><p>Returns the list of extension grants.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetExtensionGrantListResponse> List(object parameters)
         {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
+            return RC.Get<GetExtensionGrantListResponse>(Endpoint(false), parameters);
         }
-        // Get Extension Grants
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'></p><p>Returns the list of extension grants.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetExtensionGrantListResponse> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
@@ -32,15 +32,6 @@ namespace RingCentral
             public long? @page { get; set; }
             // Indicates the page size (number of items). If not specified, the value is '100' by default
             public long? @perPage { get; set; }
-        }
-        public partial class ListResponse
-        {
-            // List of extension grants with the data
-            public GrantInfo[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
         }
     }
 }

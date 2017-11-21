@@ -11,9 +11,9 @@ namespace RingCentral
                 return "restapi";
             }
         }
-        public OauthPath Oauth()
+        public StatusPath Status()
         {
-            return new OauthPath(this);
+            return new StatusPath(this);
         }
         public AccountPath Account(string _id)
         {
@@ -23,10 +23,6 @@ namespace RingCentral
         {
             return new AccountPath(this, "~");
         }
-        public ClientInfoPath ClientInfo()
-        {
-            return new ClientInfoPath(this);
-        }
         public DictionaryPath Dictionary()
         {
             return new DictionaryPath(this);
@@ -34,14 +30,6 @@ namespace RingCentral
         public GlipPath Glip()
         {
             return new GlipPath(this);
-        }
-        public NumberParserPath NumberParser()
-        {
-            return new NumberParserPath(this);
-        }
-        public NumberPoolPath NumberPool()
-        {
-            return new NumberPoolPath(this);
         }
         public SubscriptionPath Subscription(string _id)
         {
@@ -51,15 +39,31 @@ namespace RingCentral
         {
             return new SubscriptionPath(this);
         }
-        // Get Server Info
-        public Task<ServerInfo> List()
+        public ClientInfoPath ClientInfo()
         {
-            return RC.Get<ServerInfo>(Endpoint(false), null);
+            return new ClientInfoPath(this);
         }
-        // Get API Version Info
-        public Task<VersionInfo> Get()
+        public NumberParserPath NumberParser()
         {
-            return RC.Get<VersionInfo>(Endpoint(true), null);
+            return new NumberParserPath(this);
+        }
+        public NumberPoolPath NumberPool()
+        {
+            return new NumberPoolPath(this);
+        }
+        public ScimPath Scim()
+        {
+            return new ScimPath(this);
+        }
+        // <p style='font-style:italic;'>Since 1.0.0</p><p>Returns current API version(s) and server info.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetVersionsResponse> List()
+        {
+            return RC.Get<GetVersionsResponse>(Endpoint(false), null);
+        }
+        // <p style='font-style:italic;'>Since 1.0.0</p><p>Returns current API version info by apiVersion.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetVersionResponse> Get()
+        {
+            return RC.Get<GetVersionResponse>(Endpoint(true), null);
         }
     }
 }

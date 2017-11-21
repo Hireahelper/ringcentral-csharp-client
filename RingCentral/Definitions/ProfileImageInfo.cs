@@ -11,6 +11,6 @@ namespace RingCentral
         // The type of an image
         public string @contentType { get; set; }
         // List of URIs to profile images in different dimensions
-        public ImageUri[] @scales { get; set; }
+        public ProfileImageInfoURI[] @scales { get; set; }
     }
 }

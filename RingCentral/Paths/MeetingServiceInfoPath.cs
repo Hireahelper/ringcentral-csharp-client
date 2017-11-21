@@ -11,10 +11,10 @@ namespace RingCentral
                 return "meeting/service-info";
             }
         }
-        // Get Meeting Service Info
-        public Task<MeetingServiceInfo> Get()
+        //
+        public Task<MeetingServiceInfoResource> Get()
         {
-            return RC.Get<MeetingServiceInfo>(Endpoint(true), null);
+            return RC.Get<MeetingServiceInfoResource>(Endpoint(true), null);
         }
     }
 }

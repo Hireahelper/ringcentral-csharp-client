@@ -10,6 +10,8 @@ namespace RingCentral
         public string @type { get; set; }
         // For 'TextMessage' post type only. Message text
         public string @text { get; set; }
+        // List of posted attachments
+        public GlipAttachmentInfo[] @attachments { get; set; }
         // Internal identifier of a user - author of a post
         public string @creatorId { get; set; }
         // For PersonsAdded post type only. Identifiers of persons added to a group

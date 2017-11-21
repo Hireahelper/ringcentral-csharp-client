@@ -11,18 +11,18 @@ namespace RingCentral
                 return "timezone";
             }
         }
-        // Get Time Zone List
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all available timezones.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetTimezoneListResponse> List()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Get<GetTimezoneListResponse>(Endpoint(false), null);
         }
-        // Get Time Zone List
-        public Task<ListResponse> List(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all available timezones.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetTimezoneListResponse> List(object parameters)
         {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
+            return RC.Get<GetTimezoneListResponse>(Endpoint(false), parameters);
         }
-        // Get Time Zone List
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns all available timezones.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetTimezoneListResponse> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
@@ -33,19 +33,27 @@ namespace RingCentral
             // Indicates the page size (number of items). If not specified, the value is '100' by default
             public string @perPage { get; set; }
         }
-        public partial class ListResponse
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on a certain timezone.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetTimezoneInfoResponse> Get()
         {
-            // List of timezones
-            public TimezoneInfo[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
+            return RC.Get<GetTimezoneInfoResponse>(Endpoint(true), null);
         }
-        // Get Time Zone by ID
-        public Task<TimezoneInfo> Get()
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on a certain timezone.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetTimezoneInfoResponse> Get(object parameters)
         {
-            return RC.Get<TimezoneInfo>(Endpoint(true), null);
+            return RC.Get<GetTimezoneInfoResponse>(Endpoint(true), parameters);
+        }
+        // <p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Returns the information on a certain timezone.</p><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<GetTimezoneInfoResponse> Get(GetParameters parameters)
+        {
+            return Get(parameters as object);
+        }
+        public partial class GetParameters
+        {
+            // Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'
+            public long? @page { get; set; }
+            // Indicates the page size (number of items). If not specified, the value is '100' by default
+            public long? @perPage { get; set; }
         }
     }
 }

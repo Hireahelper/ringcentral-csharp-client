@@ -31,5 +31,17 @@ namespace RingCentral
         {
             return new PostsPath(this);
         }
+        public FilesPath Files(string _id)
+        {
+            return new FilesPath(this, _id);
+        }
+        public FilesPath Files()
+        {
+            return new FilesPath(this);
+        }
+        public ProfilePath Profile()
+        {
+            return new ProfilePath(this);
+        }
     }
 }

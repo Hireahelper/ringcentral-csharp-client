@@ -11,83 +11,74 @@ namespace RingCentral
                 return "contact";
             }
         }
-        // Create New Contact
-        public Task<PersonalContactInfo> Post()
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<ContactList> List()
         {
-            return RC.Post<PersonalContactInfo>(Endpoint(true), null);
+            return RC.Get<ContactList>(Endpoint(false), null);
         }
-        // Create New Contact
-        public Task<PersonalContactInfo> Post(object parameters)
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<ContactList> List(object parameters)
         {
-            return RC.Post<PersonalContactInfo>(Endpoint(true), parameters);
+            return RC.Get<ContactList>(Endpoint(false), parameters);
         }
-        // Create New Contact
-        public Task<PersonalContactInfo> Post(PersonalContactInfo parameters)
-        {
-            return Post(parameters as object);
-        }
-        // Get Contact List
-        public Task<ListResponse> List()
-        {
-            return RC.Get<ListResponse>(Endpoint(false), null);
-        }
-        // Get Contact List
-        public Task<ListResponse> List(object parameters)
-        {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
-        }
-        // Get Contact List
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<ContactList> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
         public partial class ListParameters
         {
-            // Phone number in E.164 (11-digits) format with or without plus '+'. Multiple values are supported
-            public string @phoneNumber { get; set; }
             // If specified, only contacts whose First name or Last name start with the mentioned substring are returned. Case-insensitive
             public string @startsWith { get; set; }
             // Sorts results by the specified property. The default is 'First Name'
-            public string @sortBy { get; set; }
+            public string[] @sortBy { get; set; }
             // Indicates the page number to retrieve. Only positive number values are allowed. Default value is '1'
             public long? @page { get; set; }
             // Indicates the page size (number of items). If not specified, the value is '100' by default
             public long? @perPage { get; set; }
+            //
+            public string[] @phoneNumber { get; set; }
         }
-        public partial class ListResponse
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<PersonalContactResource> Post()
         {
-            // List of personal contacts from the extension address book
-            public PersonalContactInfo[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
+            return RC.Post<PersonalContactResource>(Endpoint(true), null);
         }
-        // Delete Contact by ID
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<PersonalContactResource> Post(object parameters)
+        {
+            return RC.Post<PersonalContactResource>(Endpoint(true), parameters);
+        }
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<PersonalContactResource> Post(PersonalContactResource parameters)
+        {
+            return Post(parameters as object);
+        }
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<PersonalContactResource> Get()
+        {
+            return RC.Get<PersonalContactResource>(Endpoint(true), null);
+        }
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<PersonalContactResource> Put()
+        {
+            return RC.Put<PersonalContactResource>(Endpoint(true), null);
+        }
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<PersonalContactResource> Put(object parameters)
+        {
+            return RC.Put<PersonalContactResource>(Endpoint(true), parameters);
+        }
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<PersonalContactResource> Put(PersonalContactResource parameters)
+        {
+            return Put(parameters as object);
+        }
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Contacts</td><td>Creating, viewing, editing and deleting user personal contacts</td></tr><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
         public async Task<bool> Delete()
         {
             await RC.Delete(Endpoint(true), null);
             return true;
-        }
-        // Get Contact by ID
-        public Task<PersonalContactInfo> Get()
-        {
-            return RC.Get<PersonalContactInfo>(Endpoint(true), null);
-        }
-        // Update Contact by ID
-        public Task<PersonalContactInfo> Put()
-        {
-            return RC.Put<PersonalContactInfo>(Endpoint(true), null);
-        }
-        // Update Contact by ID
-        public Task<PersonalContactInfo> Put(object parameters)
-        {
-            return RC.Put<PersonalContactInfo>(Endpoint(true), parameters);
-        }
-        // Update Contact by ID
-        public Task<PersonalContactInfo> Put(PersonalContactInfo parameters)
-        {
-            return Put(parameters as object);
         }
     }
 }

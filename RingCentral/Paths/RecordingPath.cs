@@ -19,21 +19,10 @@ namespace RingCentral
         {
             return new ContentPath(this);
         }
-        // Get Call Recording Metadata
-        public Task<GetResponse> Get()
+        // <p style='font-style:italic;'>Since 1.0.18 (Release 6.5)</p><p>Returns call recording metadata.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallRecording</td><td>Downloading call recording content</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+        public Task<GetCallRecordingResponse> Get()
         {
-            return RC.Get<GetResponse>(Endpoint(true), null);
-        }
-        public partial class GetResponse
-        {
-            // Internal identifier of the call recording
-            public string @id { get; set; }
-            // Link to the call recording binary content
-            public string @contentUri { get; set; }
-            // Call recording file format. Supported format is audio/x-wav
-            public string @contentType { get; set; }
-            // Recorded call duration
-            public long? @duration { get; set; }
+            return RC.Get<GetCallRecordingResponse>(Endpoint(true), null);
         }
     }
 }

@@ -15,9 +15,9 @@ namespace RingCentral
         // Schedule when an answering rule should be applied
         public ScheduleInfo @schedule { get; set; }
         // Answering rules are applied when calling to selected number(s)
-        public AnsweringRuleInfo_CalleeInfo[] @calledNumbers { get; set; }
+        public CalledNumberInfo[] @calledNumbers { get; set; }
         // Answering rules are applied when calls are received from specified caller(s)
-        public AnsweringRuleInfo_CallerInfo[] @callers { get; set; }
+        public CallersInfo[] @callers { get; set; }
         // Specifies how incoming calls are forwarded
         public string @callHandlingAction { get; set; }
         // Forwarding parameters. Returned if 'ForwardCalls' is specified in 'callHandlingAction'. These settings determine the forwarding numbers to which the call will be forwarded
@@ -26,7 +26,5 @@ namespace RingCentral
         public UnconditionalForwardingInfo @unconditionalForwarding { get; set; }
         // Specifies whether to take a voicemail and who should do it
         public VoicemailInfo @voicemail { get; set; }
-        // Predefined greetings applied for an answering rule
-        public GreetingInfo[] @greetings { get; set; }
     }
 }

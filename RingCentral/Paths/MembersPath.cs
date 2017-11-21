@@ -11,18 +11,18 @@ namespace RingCentral
                 return "members";
             }
         }
-        // Get Department Members
-        public Task<ListResponse> List()
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<DepartmentMemberList> List()
         {
-            return RC.Get<ListResponse>(Endpoint(false), null);
+            return RC.Get<DepartmentMemberList>(Endpoint(false), null);
         }
-        // Get Department Members
-        public Task<ListResponse> List(object parameters)
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<DepartmentMemberList> List(object parameters)
         {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
+            return RC.Get<DepartmentMemberList>(Endpoint(false), parameters);
         }
-        // Get Department Members
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+        public Task<DepartmentMemberList> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
@@ -32,15 +32,6 @@ namespace RingCentral
             public long? @page { get; set; }
             // Indicates the page size (number of items). If not specified, the value is '100' by default
             public long? @perPage { get; set; }
-        }
-        public partial class ListResponse
-        {
-            // List of extensions belonging to a given department
-            public Department_Response_ExtensionInfo[] @records { get; set; }
-            // Information on navigation
-            public NavigationInfo @navigation { get; set; }
-            // Information on paging
-            public PagingInfo @paging { get; set; }
         }
     }
 }

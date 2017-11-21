@@ -5,6 +5,6 @@ namespace RingCentral
         // Type of phone line
         public string @lineType { get; set; }
         // Phone number information
-        public PhoneLinesInfo_PhoneNumberInfo @phoneInfo { get; set; }
+        public PhoneNumberInfo @phoneInfo { get; set; }
     }
 }

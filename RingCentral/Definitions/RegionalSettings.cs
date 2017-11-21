@@ -12,5 +12,7 @@ namespace RingCentral
         public GreetingLanguageInfo @greetingLanguage { get; set; }
         // Formatting language preferences for numbers, dates and currencies
         public FormattingLocaleInfo @formattingLocale { get; set; }
+        // Time format setting. The default value is '12h' = ['12h', '24h']
+        public string @timeFormat { get; set; }
     }
 }

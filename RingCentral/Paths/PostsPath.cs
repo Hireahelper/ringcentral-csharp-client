@@ -11,40 +11,18 @@ namespace RingCentral
                 return "posts";
             }
         }
-        // Create Post
-        public Task<GlipPostInfo> Post()
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of posts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+        public Task<GlipPosts> List()
         {
-            return RC.Post<GlipPostInfo>(Endpoint(true), null);
+            return RC.Get<GlipPosts>(Endpoint(false), null);
         }
-        // Create Post
-        public Task<GlipPostInfo> Post(object parameters)
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of posts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+        public Task<GlipPosts> List(object parameters)
         {
-            return RC.Post<GlipPostInfo>(Endpoint(true), parameters);
+            return RC.Get<GlipPosts>(Endpoint(false), parameters);
         }
-        // Create Post
-        public Task<GlipPostInfo> Post(PostParameters parameters)
-        {
-            return Post(parameters as object);
-        }
-        public partial class PostParameters
-        {
-            // Internal identifier of a group to send post to
-            public string @groupId { get; set; }
-            // Text of a post, the maximum is 10000 characters
-            public string @text { get; set; }
-        }
-        // Get Posts
-        public Task<ListResponse> List()
-        {
-            return RC.Get<ListResponse>(Endpoint(false), null);
-        }
-        // Get Posts
-        public Task<ListResponse> List(object parameters)
-        {
-            return RC.Get<ListResponse>(Endpoint(false), parameters);
-        }
-        // Get Posts
-        public Task<ListResponse> List(ListParameters parameters)
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of posts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+        public Task<GlipPosts> List(ListParameters parameters)
         {
             return List(parameters as object);
         }
@@ -57,12 +35,20 @@ namespace RingCentral
             // Max numbers of records to be returned. The default/maximum value is 250
             public long? @recordCount { get; set; }
         }
-        public partial class ListResponse
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+        public Task<GlipPostInfo> Post()
         {
-            // List of posts
-            public GlipPostInfo[] @records { get; set; }
-            // Information on navigation
-            public GlipNavigationInfo @navigation { get; set; }
+            return RC.Post<GlipPostInfo>(Endpoint(true), null);
+        }
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+        public Task<GlipPostInfo> Post(object parameters)
+        {
+            return RC.Post<GlipPostInfo>(Endpoint(true), parameters);
+        }
+        // <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+        public Task<GlipPostInfo> Post(GlipCreatePost parameters)
+        {
+            return Post(parameters as object);
         }
     }
 }

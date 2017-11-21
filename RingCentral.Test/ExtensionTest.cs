@@ -236,7 +236,7 @@ namespace RingCentral.Test
     } ]
   }
 }";
-            var ext = JsonConvert.DeserializeObject<ExtensionInfo>(s);
+            var ext = JsonConvert.DeserializeObject<GetExtensionInfoResponse>(s);
             Assert.NotNull(ext);
             Assert.Equal("101", ext.extensionNumber);
             Assert.Equal(3, ext.departments.Length);
