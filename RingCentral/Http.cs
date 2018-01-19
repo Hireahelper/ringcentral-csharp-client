@@ -9,7 +9,7 @@ namespace RingCentral
     public partial class RestClient
     {
         public string userAgent = "";
-        private IFlurlClient GetClient(string endpoint, object queryParams = null)
+        private IFlurlRequest GetClient(string endpoint, object queryParams = null)
         {
             var userAgentHeader = string.Join(" ", "RC-CSHARP-CLIENT", userAgent);
             var url = server.AppendPathSegment(endpoint).SetQueryParams(queryParams)

@@ -29,7 +29,7 @@ namespace RingCentral
         public int access_token_ttl = 3600;
         public int refresh_token_ttl = 604800;
 
-        public static JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
+        public static JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings { NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore };
 
         static RestClient()
         {
