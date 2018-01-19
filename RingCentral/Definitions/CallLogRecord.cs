@@ -32,5 +32,8 @@ namespace RingCentral
         public string @transport { get; set; }
         // For 'Detailed' view only. Leg description
         public CallLogRecordLegInfo[] @legs { get; set; }
+
+        public VoicemailMessageInfo @message { get; set; }
+
     }
 }

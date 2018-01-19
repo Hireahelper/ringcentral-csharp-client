@@ -26,5 +26,8 @@ namespace RingCentral
         public long? @duration { get; set; }
         // Call recording data. Returned if the call is recorded
         public RecordingInfo @recording { get; set; }
+
+        public VoicemailMessageInfo @message { get; set; }
+
     }
 }

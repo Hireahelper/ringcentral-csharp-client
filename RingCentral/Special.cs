@@ -41,10 +41,25 @@ namespace RingCentral
             }
             return RC.PostContent(Endpoint(false), multipartFormDataContent).ReceiveJson<MessageInfo>();
         }
-        //public Task<MessageInfo> Post(PostParameters requestBody, IEnumerable<Attachment> attachments)
-        //{
-        //    return Post(requestBody as object, attachments);
-        //}
+        public Task<MessageInfo> Post(PostParameters requestBody, IEnumerable<Attachment> attachments)
+        {
+            return Post(requestBody as object, attachments);
+        }
+
+        public class PostParameters
+        {
+            public CallerInfo[] to { get; set; }
+
+            public string faxResolution { get; set; }
+
+            public string sendTime { get; set; }
+
+            public long? coverIndex { get; set; }
+
+            public string coverPageText { get; set; }
+
+            public string originalMessageId { get; set; }
+        }
     }
     public class Attachment
     {
